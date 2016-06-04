@@ -39,8 +39,10 @@ h2{
 
 }
 
-#timer{
-
+.timer{
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 22px;
 }
 
 #question{
