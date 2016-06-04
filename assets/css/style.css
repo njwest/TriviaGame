@@ -2,6 +2,10 @@ p{
 	color: white;
 }
 
+h2{
+	color: #ffffff;
+}
+
 .background{
 	background-height: 100%;
 	background-repeat: no-repeat;
@@ -9,7 +13,7 @@ p{
 	}
 
 .container{
-	margin-top: 20px;
+	margin-top:5%;
 	width: 80%;
 	height:80%;
 	background: #4c5e6c;
@@ -17,7 +21,6 @@ p{
 	text-align: center;
 	border: 5px inset #c0c0c0;
 	border-radius: 25px;
-	
 }
 
 #game-title{
@@ -26,17 +29,14 @@ p{
 	font-family: 'Marcellus SC', arial;
 	font-size: 4em;
 	color: #fff;
-	/*text-shadow:0 1px 0 #ccc,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);*/
-   /*background: #c0c0c0;*/
-   /*border: 2px inset #000000;*/
- 
+}
+
+.answersfalse{
+
+}
+
+.answerstrue{
+
 }
 
 #timer{
@@ -48,6 +48,10 @@ p{
 }
 
 #answers{
+
+}
+
+.next{
 
 }
 
