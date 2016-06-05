@@ -19,7 +19,7 @@ button{
 } 
 
 button:active{
-	border:none;
+	outline:none;
 }
 
 #audio{
@@ -28,12 +28,17 @@ button:active{
 
 .audioContainer{
 	margin-top: 15px;
+	text-align: center;
 }
 
 .audioContainer button{
 	width:20%;
 }
 
+.audioContainer button:active{
+	outline: none;
+	width:20%;
+}
 .background{
 	background-height: 100%;
 	background-repeat: no-repeat;
