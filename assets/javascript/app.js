@@ -15,8 +15,8 @@ function results(){
 	exp = 0;
 	wrongAnswers = 0;
 	rightAnswers = 0;
-	$("#button").html("<button id='start'>Restart</button>")
-	clearTimeout(quizGame.questionGen);
+	$("#button").html("<button id='start'>Restart</button>");
+	setTimeout(function(){console.log(hi);}, 60000000);
 };
 
 var quizGame = {
