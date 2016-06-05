@@ -35,10 +35,7 @@ button:active{
 	width:20%;
 }
 
-.audioContainer button:active{
-	outline: none;
-	width:20%;
-}
+
 .background{
 	background-height: 100%;
 	background-repeat: no-repeat;
