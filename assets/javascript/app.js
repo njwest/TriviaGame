@@ -1,5 +1,7 @@
 window.onload = function(){
 	$('#button').click(quizGame.questionGen);
+	$('#results').click(quizGame.results);
+
 };
 
 
@@ -7,6 +9,16 @@ var q = 0;
 var exp = 0;
 var wrongAnswers = 0;
 var rightAnswers = 0;
+function results(){
+	$("#question").append("<h1>You got " + rightAnswers + "/" + quizGame.question.length + " answers right.");
+	q = 0;
+	exp = 0;
+	wrongAnswers = 0;
+	rightAnswers = 0;
+	$("#button").html("<button id='start'>Restart</button>")
+	clearTimeout(quizGame.questionGen);
+};
+
 var quizGame = {
 	time: 60,
 	start: function(){
@@ -86,11 +98,16 @@ var quizGame = {
    	count = setInterval(quizGame.count, 1000);
    	setTimeout(function(){
         	$("#question").html("<h2>You're out of time...</h2>");
-        	$("#answers").html('<img width="50%" src="assets/images/hamsters.gif"/>');
-        	$("#button").html("<button id='start'>Next Question </button>");
+        	$("#answers").html('<img width="50%" src="assets/images/time.gif"/>');
+        	if(q === quizGame.question.length){
+   			$("#question").html("<h2>You're out of time...</h2>")
+   			results();
+   		} else{
+   		$("#button").html("<button id='start'>Next Question </button>");
+   		};
         	quizGame.time = 60;
    		clearInterval(count);
-         $('#timer').html('00:60');
+         $('#timer').html('01:00');
         		}, 
         	60000);
    	$("#button").empty();
@@ -100,36 +117,35 @@ var quizGame = {
    	 };
    	$(".true").click(function(){
    		$("#question").html("<h2>Correct!</h2>");
-   		$("#answers").html("<img width='50%' src='assets/images/hamsters.gif'/>");
+   		$("#answers").html("<img width='50%' src='assets/images/" + q + ".gif'/>");
    		if(q === quizGame.question.length){
-   			$("#question").html("<h2>Correct!</h2><button id='finish'>Results</button>")
+   			$("#question").html("<h2>Correct!</h2>")
+   			results();
    		} else{
    		$("#button").html("<button id='start'>Next Question </button>");
    		};
    		quizGame.time = 60;
    		clearInterval(count);
-        $('#timer').html('00:60');
+        $('#timer').html('01:00');
    		exp += 2000; 
    		rightAnswers += 1;
    	});
    	$(".false").click(function(){
    		$("#question").html("<h2>Incorrect!</h2>")
-   		$("#answers").html("<img width='50%' src='assets/images/hamsters.gif'/>");
+   		$("#answers").html("<img width='50%' src='assets/images/" + q + ".gif'/>");
 			if(q === quizGame.question.length){
-   			$("#question").html("<h2>Inorrect!</h2><button id='finish'>Results</button>")
+   			$("#question").html("<h2>Incorrect!</h2>");
+   			results();
    		} else{
    		$("#button").html("<button id='start'>Next Question </button>");
    		};
 			quizGame.time = 60;
-        	$('#timer').html('00:60');
+        	$('#timer').html('01:00');
         	clearInterval(count);
         	wrongAnswers += 1;
 		});
    	q++;
-
-	}
-	
+	},
 };
-	$('#next').click(quizGame.questionGen);
 
-	 
+	 	
