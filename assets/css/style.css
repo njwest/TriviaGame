@@ -6,6 +6,34 @@ h2{
 	color: #ffffff;
 }
 
+button{
+	font-size: 1.5em;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: inherit;
+	border:none;
+} 
+
+button:active{
+	border:none;
+}
+
+#audio{
+	display:none;
+}
+
+.audioContainer{
+	margin-top: 15px;
+}
+
+.audioContainer button{
+	width:20%;
+}
+
 .background{
 	background-height: 100%;
 	background-repeat: no-repeat;
@@ -13,9 +41,9 @@ h2{
 	}
 
 .container{
-	margin-top:5%;
+	margin-top:2%;
 	width: 80%;
-	height:80%;
+	height: 80%;
 	background: #4c5e6c;
 	padding-bottom: 15px;
 	text-align: center;
@@ -39,13 +67,18 @@ h2{
 
 #question{
 	color: #ffffff;
-	font-weight: bolt;
-	font-size: 16px;
+	font-weight: bold;
+	font-size: 18px;
 	font-family: "Marcellus 20SC:", arial;
 }
 
 #answers{
+	margin-top: 15px;
+}
 
+#answers button:active{
+	color: #000000;
+	background-color: #ffffff;
 }
 
 .next{

@@ -10,6 +10,8 @@
 </head>
 <body>
 <body class="background">
+	
+
 	<div class="container" id="container">
 		<h1 id="game-title">
 			Jazz Trivia
@@ -39,7 +41,19 @@
 
 			<div id="next">
 			</div>
+
+
 		</div>
+
+		<div class="audioContainer">
+				<audio id="audio" src="assets/sound/polkadots.mp3" preload="auto" autoplay="autoplay" controls="controls" loop="loop"></audio>
+   			<button onclick="document.getElementById('audio').pause()">Pause Music</button>
+   			<button onclick="document.getElementById('audio').play()">Unpause Music</button>
+    			<button onclick="document.getElementById('audio').muted=!document.getElementById('audio').muted">
+    			Mute/Unmute
+    			</button>
+
+			</div>
 
 
 	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
