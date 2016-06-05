@@ -1,28 +1,27 @@
-
 window.onload = function(){
-	$('.timer').ready(timer.start);
+	$('#button').click(quizGame.questionGen);
 };
 
-var timer ={
-    time:60,
-    //lap:1,
-    reset: function () {
-        timer.time = 0;
-        $('.timer').html('00:60');
+var q = 0;
+var exp = 0;
+var quizGame = {
+	time: 60,
+	start: function(){
+        count = setInterval(quizGame.count, 1000);
     },
-    start: function(){
-        count = setInterval(timer.count, 1000);
-    },
-    stop: function(){
+   stop: function(){
         clearInterval(count);
     },
-    count: function(){
-        timer.time--;
-        var currentTime2 = timer.timeConverter(timer.time);
-        $('.timer').html(currentTime2);
+   count: function(){
+      quizGame.time--;
+      var currentTime2 = quizGame.timeConverter(quizGame.time);
+      $('#timer').html(currentTime2);
     },
-    timeConverter: function(t){
-        //This function is done. You do not need to touch it. It takes the current time in seconds and converts it to minutes and seconds (mm:ss).
+    //skip is currently nonfunctional
+   countReset: function () {
+        
+    },
+   timeConverter: function(t){
         var minutes = Math.floor(t/60);
         var seconds = t - (minutes * 60);
         if (seconds < 10){
@@ -35,58 +34,55 @@ var timer ={
         }
 
         return minutes + ":" + seconds;
-    }
-};
+    },
 
-var exp = 0
+	question: ["Of the following Jazz musicians, who stabbed Cab Calloway?",
+					"While serving as Vice President, Richard Nixon unknowingly smuggled a suitcase containing three pounds of cannabis through customs for this American jazz ambassador:",
+					],
+	answers: [
+					[
+						["Dizzy Gillespie", true],
+						["Fats Navarro", false],
+						["Jonah Jones", false],
+						["Billie Holiday", false]
+					],
+					[
+						["Cedar Walton", false],
+						["Chet Baker", false],
+						["Louis Armstrong", true],
+						["Ella Fitzgerald", false]
+					]
 
-var questionOne ={
-	text:"Who infamously stabbed Cab Calloway?",
-	answers:[
-				{text: "Dizzy Gillespie", correct: "true"},
-				{text: "Fats Navarro", correct: "false"},
-				{text: "Jonah Jones", correct: "false"},
-				{text: "Billie Holiday", correct: "false"}
 				],
+	questionGen: function () {
+		$("#answers").empty();
+		console.log(quizGame.question[q]);
+   	count = setInterval(quizGame.count, 1000);
+   	$("#button").empty();
+   	$("#question").html("<div>" + quizGame.question[q] + "</div>");
+   	for(var i = 0; i < quizGame.answers[q].length; i++){
+			$("#answers").append("<div><button class='" + quizGame.answers[q][i][1] + "'>" + quizGame.answers[q][i][0] + "</button></div>");
+   	 };
+   	$(".true").click(function(){
+   		$("#question").html("<h2>Correct!</h2>")
+   		$("#answers").html("<img width='75%' src='assets/images/hamsters.gif'/>");
+   		$("#button").html("<button id='start'>Next Question </button>");
+   		quizGame.time = 60;
+        $('#timer').html('00:60');
+   		exp += 2000;
+   	});
+   	$(".false").click(function(){
+   		$("#question").html("<h2>Incorrect!</h2>")
+   		$("#answers").html("<img width='75%' src='assets/images/hamsters.gif'/>");
+			$("#button").html("<button id='start'>Next Question </button>");
+			quizGame.time = 60;
+        	$('#timer').html('00:60');
+		});
+   	q++;
+
+	}
+	
 };
+	$('#next').click(quizGame.questionGen);
 
-var questionTwo={
-	text: "While serving as Vice President, Richard Nixon unknowingly smuggled a suitcase containing three pounds of cannabis through customs for this American jazz musician and goodwill ambassador:",
-	answers:[
-				{text: "Cedar Walton", correct: "false"},
-				{text: "Chet Baker", correct: "false"},
-				{text: "Louis Armstrong", correct: "true"},
-				{text: "Ella Fitzgerald", correct: "false"}
-				],
-};
-
-$(".question").html("<p>" +  questionOne.text + "</p>");
-
-for (var i = 0; i < questionOne.answers.length; i++){
-	$(".answers").append("<button class='" + questionOne.answers[i].correct + "'>" + questionOne.answers[i].text + "</button>");
-};
-
-$(".next").click(function(){
-	$(".game").html("asdfas");
-});
-
-$(".false").click(function(){
-	$(".game").html("<h2>Incorrect.</h2><button class='next'>Next Question </button>");
-});
-
-$(".true").click(function(){
-	$(".game").html("<div><img src='assets/images/hamsters.gif'/></div><h2>You right!</h2><button class='next'>Next Question </button>");
-	exp += 2000;
-});
-
-
-
-
-//function answers(){
-//	if (false){
-//		$("#game").html("<p>You wrong!</p>");
-//	}
-//	else if (true){
-//		$("#game").html("<p>You right...</p>");
-//	}
-//};
+	 

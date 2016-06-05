@@ -1,5 +1,5 @@
 p{
-	color: white;
+	color:#ffffff;
 }
 
 h2{
@@ -31,22 +31,17 @@ h2{
 	color: #fff;
 }
 
-.answersfalse{
-
-}
-
-.answerstrue{
-
-}
-
-.timer{
+#timer{
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 22px;
 }
 
 #question{
-
+	color: #ffffff;
+	font-weight: bolt;
+	font-size: 16px;
+	font-family: "Marcellus 20SC:", arial;
 }
 
 #answers{
